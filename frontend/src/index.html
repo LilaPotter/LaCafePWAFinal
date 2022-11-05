@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+</head>
+<body>
+  <app-root></app-root>
+  <script src="https://www.paypal.com/sdk/js?currency=CAD&amp;client-id=AeksMoDeJdBJ_jRaVd40jP11DuGyv7rvk-SwGzwfEstNN7wW5xGbZt4Xj2xCgIvwz5LWWi8dLwlvVwdq"></script>
+  <script>
+    function showNotification(){
+      const notification = new Notification("Nuevo mensaje de curriculum",{
+        body: "Bienvenido a LaCafe, ¿Listo para ordenar?"
+      })
+    }
+
+    console.log(Notification.permission)
+
+    if(Notification.permission === "granted"){
+
+      showNotification()
+
+    } else if (Notification.permission !== "denied"){
+      Notification.requestPermission().then(permission =>{
+        if(permission === "granted"){
+          showNotification();
+        }
+      })
+    }
+  </script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>
